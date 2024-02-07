@@ -1,8 +1,9 @@
 import ChatScope from "../../components/ChatScope/ChatScope"
+import './HomePage.css';
 
 export default function Homepage() {
   return (
-    <div style={{ position: "relative", height: "500px" }}>
+    <div> 
     <ChatScope/>
     </div>
   )

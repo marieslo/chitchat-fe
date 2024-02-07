@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './MyProfilePage.css';
+import './ProfilePage.css';
 import localforage from 'localforage';
 import { useAuth } from '../../context/AuthProvider';
 
@@ -11,8 +11,7 @@ export default function EditProfileForm({ onSave, initialData }) {
     password: '',
     firstName: '',
     lastName: '',
-    phoneNumber: '',
-    shortBio: '',
+    languageLevel: '',
     ...initialData,
   });
 
@@ -100,23 +99,14 @@ export default function EditProfileForm({ onSave, initialData }) {
             />
           </div>
           <div>
-            <label>Phone Number:</label>
+            <label>Language Level:</label>
             <input
-              type="tel"
-              name="phoneNumber"
-              value={formData.phoneNumber}
+              type="text"
+              name="languageLevel"
+              value={formData.languageLevel}
               onChange={handleChange}
             />
           </div>
-        </div>
-        <div className='editprofile-shortbio'>
-          <label>Short Bio:</label>
-          <textarea
-            className='edit-profile-textarea'
-            name="shortBio"
-            value={formData.shortBio}
-            onChange={handleChange}
-          />
         </div>
         <button 
         className="edit-profile-page-btn" 

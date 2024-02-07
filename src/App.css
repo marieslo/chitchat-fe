@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 :root {
+  font-family: "Quicksand", sans-serif;
   height: 100vh;
   width: 100vw;
+  background: url(./styles/background.jpg);
   }

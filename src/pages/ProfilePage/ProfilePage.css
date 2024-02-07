@@ -1,5 +1,4 @@
 .profile-page-container {
-  background: url('../../styles/backgrounds/my-profile-page-background.jpg') no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -16,7 +15,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  font-family: 'Gotu', sans-serif;
+  /* font-family: 'Gotu', sans-serif; */
   letter-spacing: -1px;
 }
 

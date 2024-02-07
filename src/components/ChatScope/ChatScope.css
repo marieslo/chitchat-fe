@@ -1,0 +1,55 @@
+@media screen and (max-width: 768px) {
+    .chitchat-container{
+      height: 70vh; 
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .chitchat-container{
+      height: 60vh;
+    }
+  }
+
+.cs-main-container {
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    width: 60%;
+    min-width: 180px;
+    padding: 20px;
+  }
+
+
+.cs-message-input{
+    margin: 15px
+}
+
+.cs-button--attachment{
+    display: none !important;
+}
+
+.cs-message--outgoing{
+    border-radius: 10px;
+}
+
+.cs-message__content {
+    background-image: linear-gradient(to right, #a4d8f5, #e7f3fb); 
+  }
+
+.cs-message__html-content{
+    color: #03045e;
+}
+
+.chitchat-container {
+    height: 80vh; 
+    width: 80vw;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
