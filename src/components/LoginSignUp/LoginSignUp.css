@@ -38,7 +38,7 @@ input.form-control:focus {
   border: none;
   border-radius: 0.25rem;
   /* background-color: solid #f2cea2 !important; */
-  margin: 25px 0 25px 15px;
+  margin: 25px 0 10px 15px;
   font-size: 16px;
   text-shadow: 0 2px 2px 4px #003249(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -115,7 +115,6 @@ input.form-control:focus {
 .modal-tabs {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
 }
 
 .modal-tabs .nav-link {
@@ -124,7 +123,7 @@ input.form-control:focus {
   border: 1px solid transparent;
   border-radius: 30px;
   border-width: 3px;
-  padding: 10px;
+  padding: 5px;
   font-weight: 400;
   background-color: transparent;
 

@@ -31,7 +31,7 @@ export default function SignUpForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     setInvalidFields([]);
     setErrorMessages({
       email: '',
@@ -39,7 +39,7 @@ export default function SignUpForm() {
       confirmPassword: '',
       languageLevel: '',
     });
-
+  
     if (password !== confirmPassword) {
       setInvalidFields(['password', 'confirmPassword']);
       setErrorMessages({
@@ -48,7 +48,7 @@ export default function SignUpForm() {
       });
       return;
     }
-
+  
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (!passwordRegex.test(password)) {
       setInvalidFields(['password']);
@@ -57,21 +57,22 @@ export default function SignUpForm() {
       });
       return;
     }
-
+  
     try {
       setLoading(true);
       const response = await axios.post('http://localhost:8000/signup', {
         email,
         password,
+        confirmPassword,
         firstName,
         lastName,
-        languageLevel,
+        level: languageLevel, 
       });
       const userData = response.data;
       login({ email, password, firstName, lastName, languageLevel });
       updateUser(userData);
       setShowSuccessMessage(true);
-
+  
       setTimeout(() => {
         navigate('/home');
       }, 1000);
