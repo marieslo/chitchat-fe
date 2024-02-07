@@ -38,42 +38,37 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
 
   return (
     <Modal show={show} onHide={onHide} centered>
-      <Tab.Container activeKey={isLoginPage ? 'login' : 'signup'}>
-        <Modal.Header closeButton>
-          <Nav className='modal-tabs'>
-            <Nav.Item>
-              <Nav.Link className='tab-login' eventKey="login" onClick={handleTogglePage}>
-                Login
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link className='tab-signup' eventKey="signup" onClick={handleTogglePage}>
-                Sign Up
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Modal.Header>
-        <Modal.Body>
-          <Tab.Content>
-            <Tab.Pane eventKey="login">
-              <LoginForm onSubmit={handleLogin} />
-              <Form.Group controlId="isAdminCheckbox" className="checkbox-label">
-                <Form.Check
-                  className='checkbox-input'
-                  type="checkbox"
-                  label="I'm admin"
-                  checked={isAdminLogin}
-                  onChange={handleCheckboxChange}
-                />
-                <div className="checkbox-checkmark"></div>
-              </Form.Group>
-            </Tab.Pane>
-            <Tab.Pane eventKey="signup">
-              <SignUpForm onSubmit={handleSignup} />
-            </Tab.Pane>
-          </Tab.Content>
-        </Modal.Body>
-      </Tab.Container>
+      <Modal.Header closeButton>
+        <Nav className='modal-tabs'>
+          <Nav.Item>
+            <Nav.Link className='tab-login' active={isLoginPage} onClick={() => setIsLoginPage(true)}>
+              Login
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link className='tab-signup' active={!isLoginPage} onClick={() => setIsLoginPage(false)}>
+              Sign Up
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </Modal.Header>
+      <Modal.Body>
+        {isLoginPage ? (
+          <LoginForm onSubmit={handleLogin} />
+        ) : (
+          <SignUpForm onSubmit={handleSignup} />
+        )}
+        <Form.Group controlId="isAdminCheckbox" className="checkbox-label">
+          <Form.Check
+            className='checkbox-input'
+            type="checkbox"
+            label="I'm admin"
+            checked={isAdminLogin}
+            onChange={handleCheckboxChange}
+          />
+          <div className="checkbox-checkmark"></div>
+        </Form.Group>
+      </Modal.Body>
     </Modal>
   );
 }
