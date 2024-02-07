@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Nav, Tab, Form } from 'react-bootstrap';
+import { Modal, Nav } from 'react-bootstrap';
 import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
 import { useNavigate } from 'react-router-dom';
@@ -58,16 +58,6 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
         ) : (
           <SignUpForm onSubmit={handleSignup} />
         )}
-        {/* <Form.Group controlId="isAdminCheckbox" className="checkbox-label">
-          <Form.Check
-            className='checkbox-input'
-            type="checkbox"
-            label="I'm admin"
-            checked={isAdminLogin}
-            onChange={handleCheckboxChange}
-          />
-          <div className="checkbox-checkmark"></div>
-        </Form.Group> */}
       </Modal.Body>
     </Modal>
   );

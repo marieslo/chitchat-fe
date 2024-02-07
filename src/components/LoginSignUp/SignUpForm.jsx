@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Alert, Spinner } from 'react-bootstrap';
-import localforage from 'localforage';
 import { useNavigate } from 'react-router-dom';
-import { nanoid } from 'nanoid';
+import axios from 'axios';
 import { useAuth } from '../../context/AuthProvider';
-// import axios from 'axios'
 import './LoginSignUp.css';
 
 export default function SignUpForm() {
@@ -60,32 +58,16 @@ export default function SignUpForm() {
       return;
     }
 
-
     try {
-      const users = (await localforage.getItem('users')) || [];
-      const isEmailUnique = users.every((user) => user.email !== email);
-
-      if (!isEmailUnique) {
-        setInvalidFields(['email']);
-        setErrorMessages({
-          email: 'Email is already registered. Please use a different email.',
-        });
-        return;
-      }
-
-      const userData = {
-        id: generateUniqueId(),
+      setLoading(true);
+      const response = await axios.post('http://localhost:8000/signup', {
         email,
         password,
         firstName,
         lastName,
         languageLevel,
-      };
-
-      await localforage.setItem('user', userData);
-      users.push(userData);
-      await localforage.setItem('users', users);
-
+      });
+      const userData = response.data;
       login({ email, password, firstName, lastName, languageLevel });
       updateUser(userData);
       setShowSuccessMessage(true);
@@ -95,38 +77,15 @@ export default function SignUpForm() {
       }, 1000);
     } catch (error) {
       console.error('Error registering user:', error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     if (showSuccessMessage) {
-      navigate('/home');;
+      navigate('/home');
     }
   }, [showSuccessMessage, navigate]);
-
-
-  // const handleRegister = async () => {
-  //   try {
-  //     const response = await axios.post('http://localhost:8000/signup', {
-  //       "email": email,
-  //       "password": password,
-  //       "confirmPassword": confirmPassword,
-  //       "firstName": firstName,
-  //       "lastName": lastName,
-  //       "languageLevel": level
-  //     });
-  //     console.log(response.data)
-  //     setFirstName('');
-  //     setLastName('');
-  //     setPassword('');
-  //     setConfPassword('');
-  //     setEmail('');
-  //     setLanguageLevel('');
-  //   } catch (error) {
-  //     alert(error.message);
-  //   }
-  // };
-
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -166,7 +125,7 @@ export default function SignUpForm() {
         {errorMessages.languageLevel && <small className="text-danger">{errorMessages.languageLevel}</small>}
       </Form.Group>
 
-      <button className="switch-login-signup-btn" type="submit">
+      <button className="switch-login-signup-btn" type="submit" disabled={loading}>
         {loading ? (
           <>
             <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />

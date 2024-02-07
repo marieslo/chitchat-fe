@@ -1,37 +1,41 @@
-import React, {useEffect} from 'react';
-import localforage from 'localforage';
-import { useAuth } from '../../context/AuthProvider.jsx';
-import EditProfileForm from './EditProfileForm';
+import './ProfilePage.css';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-export default function MyProfilePage() {
-  const { user, updateUser } = useAuth();
+export default function ProfilePage() {
 
-  const handleSave = async (formData) => {
-    try {
+  const token = localStorage.getItem('token');
+  const id = localStorage.getItem('id');
+  const [userData, setUserData] = useState(null);
 
-      updateUser({ ...user, ...formData });
-    } catch (error) {
-      console.error('Error saving profile:', error);
-    }
-  };
+  useEffect(() => {
 
-
-useEffect(() => {
-    const updateUserData = async () => {
-      const userLocalStorageKey = `userData_${user.id}`;
-      const existingUserData = await localforage.getItem(userLocalStorageKey) || {};
-      const updatedUserData = { ...existingUserData, ...user };
-      await localforage.setItem(userLocalStorageKey, updatedUserData);
-    };
-
-    if (user) {
-      updateUserData();
-    }
-  }, [user]);
+    axios.get(`http://localhost:8000/user/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        setUserData(response.data);
+      })
+      .catch(error => {
+        console.error('There was a problem with the request:', error);
+      });
+  }, []);
 
   return (
-    <div className='profile-page-container'>
-      {user && <EditProfileForm userId={user.id} initialData={user} onSave={handleSave} />}
+    <div>
+      {userData ? (
+        <div>
+          <h1>User Info</h1>
+          <p>Name: {userData.firstName}</p>
+          <p>Surname: {userData.lastName}</p>
+          <p>Email: {userData.email}</p>
+          <p>Language level: {userData.level}</p>          
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

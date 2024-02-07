@@ -2,47 +2,32 @@ import React, { useState } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import localforage from 'localforage';
 import { useNavigate } from 'react-router-dom';
-// import axios from 'axios'
+import axios from 'axios';
 import './LoginSignUp.css';
 
 export default function LoginForm({ onSubmit }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showAlert, setShowAlert] = useState(false);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const users = (await localforage.getItem('users')) || [];
+    try {
+      const response = await axios.post('http://localhost:8000/login', {
+        email,
+        password
+      });
 
-    const user = users.find((user) => user.email === email && user.password === password);
+      localforage.setItem('token', response.data.token);
+      localforage.setItem('id', response.data.id);
 
-    if (!user) {
+      navigate('/home');
+    } catch (error) {
       setShowAlert(true);
-      return;
     }
-    onSubmit(user);
-    navigate('/home');
   };
-
-
-  // const handleLogin = async () => {
-  //   try {
-  //     const response = await axios.post('http://localhost:8000/login', {
-  //       "email": email,
-  //       "password": password
-  //     });
-  //     setEmail('');
-  //     setPassword('');
-  //     const token = response.data.token;
-  //     console.log(response.data.firstName + response.data.lastName, response.statusText)
-  //   } catch (error) {
-  //     alert(error.message);
-  //   } 
-  // };
-  
 
   return (
     <Form onSubmit={handleSubmit}>
