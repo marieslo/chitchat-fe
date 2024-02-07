@@ -9,6 +9,7 @@ export default function Header() {
       <img src={iconUrl} alt="Icon" className="header-icon" width="150" height="150" />
       <br/>
       <br/>
-      Explore immersive experiences to enhance your language skills</div>
+      Explore immersive experiences to enhance your language skills
+      </div>
   )
 }

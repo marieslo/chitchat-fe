@@ -15,25 +15,47 @@
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%);
-    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-right-width: 2px;
+    border-bottom-width: 4px;
+    border-radius: 30px;
     width: 60%;
     min-width: 180px;
     padding: 10px;
-    background-image: linear-gradient(to bottom, #B6E1F2, #FFFFFF);
+    background-image: linear-gradient(to bottom, #B1D989, #FFFFFF);
   }
 
-  .cs-message-input__content-editor, .cs-message-input__content-editor-wrapper{
-    background-color: #d8ecf4;
-    border: none;
-    font-family: "Orbitron", sans-serif;
-    letter-spacing: 2px;
+  .cs-chat-container{
+  border-radius: 30px;
+  /* border-style: solid;
+  border-color: black;
+  border-right-width: 2px;
+  border-bottom-width: 4px;
+  padding: 10px; */
   }
+
+  .cs-message-input__content-editor, .cs-message-input__content-editor-wrapper, .cs-message-input__content-editor-container{
+    background-color: #FAE0BD;
+    border: none;
+    font-family: "Varela Round", sans-serif;
+    border-radius: 30px;
+    padding: 5px;
+  }
+
+.cs-message-input__content-editor-wrapper{
+  border-style: solid;
+  border-color: black;
+  border-right-width: 2px;
+  border-bottom-width: 4px;
+}
 
   .cs-message-list {
     padding: 5px;
     overflow-y: auto; 
     display: flex;
     flex-direction: column-reverse; 
+    border-radius: 30px;
   }
 
 .cs-message-input{
@@ -45,18 +67,19 @@
 }
 
 .cs-message__content {
-    background-image: linear-gradient(to bottom, #B6E1F2, #FFFFFF);
-    border: solid #79D0F2; 
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6));;
+    border: solid #B1D989; 
     border-width: 0.3px;
-    border-radius: 10px 10px 10px 10px !important;
+    border-radius: 30px !important;
     margin-top: 15px;
+    /* border: solid black;
+    border-width: 1px; */
   }
 
 .cs-message__html-content{
     color: #012d41;
     opacity: 0.8;
-    letter-spacing: 2px;
-    font-family: "Orbitron", sans-serif;
+    font-family: "Varela Round", sans-serif;
 }
 
 .chitchat-container {

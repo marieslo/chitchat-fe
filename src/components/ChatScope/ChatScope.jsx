@@ -6,7 +6,7 @@ import './ChatScope.css'
 export default function Chatscope() {
   const [messages, setMessages] = useState([
     {
-      message: "Hi! I'm so excited to learn new words and phrases together! Let's get started...",
+      message: "Hi! It's so excited to learn new words and phrases together! Let's get started...",
       sentTime: "just now",
       sender: "Chitchat"
     }

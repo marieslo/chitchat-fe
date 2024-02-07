@@ -10,20 +10,27 @@ label {
 }
 
 input {
-  height: 10px;
-  padding: 5px;
+  height: 25px;
+  padding: 5px 15px 5px 15px;
   width: 320px !important;
-  height: 20px;
   font-size: 16px !important;
   margin: 15px 25px 5px 15px;
   color: #003249!important;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Varela Round", sans-serif;
+  border-radius: 10px;
   border: solid #003249;
-  border-radius: 0.25rem;
+  border-width: 1px;
 }
 
 input.form-control:focus {
   outline: none!important;
+}
+
+.modal-content{
+  border-style: solid;
+  border-color: black;
+  border-right-width: 2px;
+  border-bottom-width: 4px;
 }
 
 .modal-btn,
@@ -33,40 +40,45 @@ input.form-control:focus {
   /* background-color: solid #f2cea2 !important; */
   margin: 25px 0 25px 15px;
   font-size: 16px;
-  text-shadow: 0 2px 4px #003249(0, 0, 0, 0.1);
-  border: solid #003249;
-  width: 333px;
-  height: 32px;
+  text-shadow: 0 2px 2px 4px #003249(0, 0, 0, 0.1);
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  border-right-width: 2px;
+  border-bottom-width: 4px;
+  width: 350px;
+  height: 48px;
   color: #003249;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Varela Round", sans-serif;
+  background-color: #FAE0BD;
 }
 
 .modal-btn:hover,
 .switch-login-signup-btn:hover {
-  background-color: #ACE5F2;
-
-  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  background-color: #8BADD9;
+  transition: 0.3s, color 0.3s;
 }
 
 .btn-close {
-  /* background-color: white; */
   opacity: 1;
   height: 20px;
-  margin-left: 4px !important;
+  margin-right: 4px !important;
   color: #003249!important;
   font-size: 16px;
   border: none;
+  background-color: #B1D989;
 }
 
 .modal-body,
 .modal-footer {
-  background-color: white; 
+  background-color:#B1D989; 
   border-radius: 0 0 0.25rem 0.25rem ;
   padding: 20px;
 }
 
 .modal-header{
-  background-color: white; 
+  background-color: #B1D989; 
   border-radius: 0.25rem 0.25rem 0 0;
 }
 
@@ -90,25 +102,37 @@ input.form-control:focus {
   align-items: center;
   padding: 20px;
   z-index: 9999; 
+  border-radius: 30px;
+  /* border: solid black; */
+  border-width: 3px;
+  background-color: #B1D989;
+  border-style: solid;
+  border-color: black;
+  border-right-width: 2px;
+  border-bottom-width: 4px;
 }
 
 .modal-tabs {
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
 }
 
 .modal-tabs .nav-link {
   flex: 1;
   text-align: center;
   border: 1px solid transparent;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 30px;
+  border-width: 3px;
   padding: 10px;
+  font-weight: 400;
+  background-color: transparent;
+
 }
 
 .modal-tabs .nav-link.active {
   color: #003249;
-  background-color: #FFFFFF;
-  border-color: #dee2e6 #dee2e6 #f8f9fa;
+  font-size: 20px;
 }
 
 .checkbox-label {
@@ -158,4 +182,17 @@ input.form-control:focus {
   right: 15px;
   top: 15px;
   color: black;
+}
+
+.button-close {
+  background-color: #B1D989;
+  border: none;
+  position: absolute;
+  transform: translateY(-50%);
+  right: 20px; 
+  top: 30px;
+}
+
+.button-close:hover {
+  cursor: pointer;
 }

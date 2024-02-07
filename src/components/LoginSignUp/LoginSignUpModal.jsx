@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Nav } from 'react-bootstrap';
+import { Modal, Nav, Button } from 'react-bootstrap';
 import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
 import { useNavigate } from 'react-router-dom';
@@ -38,7 +38,7 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
 
   return (
     <Modal show={show} onHide={onHide} centered>
-      <Modal.Header closeButton className="modal-header-custom">
+       <Modal.Header className="modal-header-custom d-flex justify-content-between align-items-center">
         <Nav className='modal-tabs'>
           <Nav.Item>
             <Nav.Link className='tab-login' active={isLoginPage} onClick={() => setIsLoginPage(true)}>
@@ -51,6 +51,7 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
             </Nav.Link>
           </Nav.Item>
         </Nav>
+        <Button className='button-close' variant="secondary" onClick={onHide}>X</Button>
       </Modal.Header>
       <Modal.Body>
         {isLoginPage ? (
