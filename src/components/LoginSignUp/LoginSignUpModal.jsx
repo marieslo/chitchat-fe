@@ -38,7 +38,7 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
 
   return (
     <Modal show={show} onHide={onHide} centered>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton className="modal-header-custom">
         <Nav className='modal-tabs'>
           <Nav.Item>
             <Nav.Link className='tab-login' active={isLoginPage} onClick={() => setIsLoginPage(true)}>
@@ -58,7 +58,7 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
         ) : (
           <SignUpForm onSubmit={handleSignup} />
         )}
-        <Form.Group controlId="isAdminCheckbox" className="checkbox-label">
+        {/* <Form.Group controlId="isAdminCheckbox" className="checkbox-label">
           <Form.Check
             className='checkbox-input'
             type="checkbox"
@@ -67,7 +67,7 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
             onChange={handleCheckboxChange}
           />
           <div className="checkbox-checkmark"></div>
-        </Form.Group>
+        </Form.Group> */}
       </Modal.Body>
     </Modal>
   );

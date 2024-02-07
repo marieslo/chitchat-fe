@@ -74,7 +74,7 @@ export default function Chatscope() {
           <ChatContainer>       
             <MessageList 
               scrollBehavior="smooth" 
-              typingIndicator={isTyping ? <TypingIndicator content="Chitchat is typing" /> : null}
+              typingIndicator={isTyping ? <TypingIndicator/> : null}
             >
               {messages.map((message, i) => {
                 console.log(message)

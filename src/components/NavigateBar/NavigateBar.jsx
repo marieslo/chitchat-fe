@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
-import LoginSignUpModal from '../LogInSignUp/LoginSignUpModal.jsx';
+import LoginSignUpModal from '../LoginSignUp/LoginSignUpModal.jsx';
 import './NavigateBar.css';
 import { useAuth } from '../../context/AuthProvider.jsx';
 
@@ -37,11 +37,6 @@ export default function NavigateBar() {
 
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-start">
         <Nav className="mr-auto">
-          {!isAdmin && location.pathname !== '/' && !user && (
-            <NavLink to="/" className="nav-link">
-              Back
-            </NavLink>
-          )}
 
           {user && (
             <>

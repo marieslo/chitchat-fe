@@ -1,4 +1,4 @@
-.profile-page-container {
+/* .profile-page-container {
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -16,15 +16,15 @@
   align-items: flex-start;
   justify-content: center;
   /* font-family: 'Gotu', sans-serif; */
-  letter-spacing: -1px;
+  /* letter-spacing: -1px;
 }
 
 .editprofile-inputs,
 .editprofile-shortbio {
   width: 100%;
-}
+} */
 
-input {
+/* input {
   border-radius: 0.25rem;
   outline: none;
   border: none;
@@ -32,10 +32,10 @@ input {
   width: 50%;
   padding: 10px;
   margin-bottom: 10px;
-}
-
-.edit-profile-textarea {
-  height: 60px;
+} */
+/* 
+.edit-profile-textarea { */
+  /* height: 60px;
   width: 364px;
   border-radius: 0.25rem;
   outline: none;
@@ -86,4 +86,4 @@ label {
   justify-content: center;
   font-family: 'Gotu', sans-serif;
   letter-spacing: -1px;
-}
+} */

@@ -13,16 +13,15 @@ export default function SignUpForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [loading, setLoading] = useState(false);
   const { login, updateUser } = useAuth();
   const [invalidFields, setInvalidFields] = useState([]);
-  // const [level, setLevel] = useState('');
+  const [languageLevel, setLanguageLevel] = useState('');
   const [errorMessages, setErrorMessages] = useState({
     email: '',
     password: '',
     confirmPassword: '',
-    phoneNumber: '',
+    languageLevel: '',
   });
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
@@ -40,7 +39,7 @@ export default function SignUpForm() {
       email: '',
       password: '',
       confirmPassword: '',
-      phoneNumber: '',
+      languageLevel: '',
     });
 
     if (password !== confirmPassword) {
@@ -61,14 +60,6 @@ export default function SignUpForm() {
       return;
     }
 
-    const phoneNumberRegex = /^\d{6,}$/;
-    if (!phoneNumberRegex.test(phoneNumber)) {
-      setInvalidFields(['phoneNumber']);
-      setErrorMessages({
-        phoneNumber: 'Phone number must contain at least 6 digits.',
-      });
-      return;
-    }
 
     try {
       const users = (await localforage.getItem('users')) || [];
@@ -88,14 +79,14 @@ export default function SignUpForm() {
         password,
         firstName,
         lastName,
-        phoneNumber,
+        languageLevel,
       };
 
       await localforage.setItem('user', userData);
       users.push(userData);
       await localforage.setItem('users', users);
 
-      login({ email, password, firstName, lastName, phoneNumber });
+      login({ email, password, firstName, lastName, languageLevel });
       updateUser(userData);
       setShowSuccessMessage(true);
 
@@ -122,7 +113,7 @@ export default function SignUpForm() {
   //       "confirmPassword": confirmPassword,
   //       "firstName": firstName,
   //       "lastName": lastName,
-  //       "level": level
+  //       "languageLevel": level
   //     });
   //     console.log(response.data)
   //     setFirstName('');
@@ -130,7 +121,7 @@ export default function SignUpForm() {
   //     setPassword('');
   //     setConfPassword('');
   //     setEmail('');
-  //     setLevel('');
+  //     setLanguageLevel('');
   //   } catch (error) {
   //     alert(error.message);
   //   }
@@ -169,10 +160,10 @@ export default function SignUpForm() {
         <Form.Control type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
       </Form.Group>
 
-      <Form.Group controlId="formBasicPhoneNumber" className={invalidFields.includes('phoneNumber') ? 'invalid' : ''}>
-        <Form.Label>Phone Number</Form.Label>
-        <Form.Control type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-        {errorMessages.phoneNumber && <small className="text-danger">{errorMessages.phoneNumber}</small>}
+      <Form.Group controlId="formBasicLanguageLevel" className={invalidFields.includes('languageLevel') ? 'invalid' : ''}>
+        <Form.Label>Language Level</Form.Label>
+        <Form.Control type="text" value={languageLevel} onChange={(e) => setLanguageLevel(e.target.value)} />
+        {errorMessages.languageLevel && <small className="text-danger">{errorMessages.languageLevel}</small>}
       </Form.Group>
 
       <button className="switch-login-signup-btn" type="submit">

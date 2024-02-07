@@ -18,28 +18,45 @@
     border-radius: 10px;
     width: 60%;
     min-width: 180px;
-    padding: 20px;
+    padding: 10px;
+    background-image: linear-gradient(to bottom, #B6E1F2, #FFFFFF);
   }
 
+  .cs-message-input__content-editor, .cs-message-input__content-editor-wrapper{
+    background-color: #d8ecf4;
+    border: none;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .cs-message-list {
+    padding: 5px;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column-reverse; 
+  }
 
 .cs-message-input{
-    margin: 15px
+    margin: 15px;
 }
 
 .cs-button--attachment{
     display: none !important;
 }
 
-.cs-message--outgoing{
-    border-radius: 10px;
-}
-
 .cs-message__content {
-    background-image: linear-gradient(to right, #a4d8f5, #e7f3fb); 
+    background-image: linear-gradient(to bottom, #B6E1F2, #FFFFFF);
+    border: solid #79D0F2; 
+    border-width: 0.3px;
+    border-radius: 10px 10px 10px 10px !important;
+    margin-top: 15px;
   }
 
 .cs-message__html-content{
-    color: #03045e;
+    color: #012d41;
+    opacity: 0.8;
+    letter-spacing: 2px;
+    font-family: "Orbitron", sans-serif;
 }
 
 .chitchat-container {
@@ -52,4 +69,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .cs-message {
+    animation: bounce 0.3s ease-in-out;
+    margin: 5px;
   }
