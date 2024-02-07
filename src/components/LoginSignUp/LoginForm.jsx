@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import localforage from 'localforage';
 import { useNavigate } from 'react-router-dom';
+// import axios from 'axios'
 import './LoginSignUp.css';
 
 export default function LoginForm({ onSubmit }) {
@@ -25,6 +26,23 @@ export default function LoginForm({ onSubmit }) {
     onSubmit(user);
     navigate('/home');
   };
+
+
+  // const handleLogin = async () => {
+  //   try {
+  //     const response = await axios.post('http://localhost:8000/login', {
+  //       "email": email,
+  //       "password": password
+  //     });
+  //     setEmail('');
+  //     setPassword('');
+  //     const token = response.data.token;
+  //     console.log(response.data.firstName + response.data.lastName, response.statusText)
+  //   } catch (error) {
+  //     alert(error.message);
+  //   } 
+  // };
+  
 
   return (
     <Form onSubmit={handleSubmit}>

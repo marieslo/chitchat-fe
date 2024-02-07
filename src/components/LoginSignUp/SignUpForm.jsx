@@ -4,6 +4,7 @@ import localforage from 'localforage';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import { useAuth } from '../../context/AuthProvider';
+// import axios from 'axios'
 import './LoginSignUp.css';
 
 export default function SignUpForm() {
@@ -16,6 +17,7 @@ export default function SignUpForm() {
   const [loading, setLoading] = useState(false);
   const { login, updateUser } = useAuth();
   const [invalidFields, setInvalidFields] = useState([]);
+  // const [level, setLevel] = useState('');
   const [errorMessages, setErrorMessages] = useState({
     email: '',
     password: '',
@@ -110,6 +112,30 @@ export default function SignUpForm() {
       navigate('/home');;
     }
   }, [showSuccessMessage, navigate]);
+
+
+  // const handleRegister = async () => {
+  //   try {
+  //     const response = await axios.post('http://localhost:8000/signup', {
+  //       "email": email,
+  //       "password": password,
+  //       "confirmPassword": confirmPassword,
+  //       "firstName": firstName,
+  //       "lastName": lastName,
+  //       "level": level
+  //     });
+  //     console.log(response.data)
+  //     setFirstName('');
+  //     setLastName('');
+  //     setPassword('');
+  //     setConfPassword('');
+  //     setEmail('');
+  //     setLevel('');
+  //   } catch (error) {
+  //     alert(error.message);
+  //   }
+  // };
+
 
   return (
     <Form onSubmit={handleSubmit}>
