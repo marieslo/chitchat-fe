@@ -55,11 +55,17 @@ export default function NavigateBar() {
               >
                 My Profile
               </NavLink>
+              <NavLink
+                to="/chathistory"
+                className="nav-link"
+                style={location.pathname === '/chathistory' ? activeLinkStyle : {}}
+              >
+                My chats
+              </NavLink>
             </>
           )}
         </Nav>
       </Navbar.Collapse>
-
       <Navbar.Collapse className="justify-content-end">
         {user ? (
           <>

@@ -1,0 +1,7 @@
+.chat-archive-container {
+    display: flex;
+  }
+  
+  .main-content {
+    flex: 1;
+  }

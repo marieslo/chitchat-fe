@@ -13,16 +13,18 @@ export default function LoginForm({ onSubmit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:8000/login', {
         email,
         password
       });
-
-      localforage.setItem('token', response.data.token);
-      localforage.setItem('id', response.data.id);
-
+  
+      const userData = response.data;
+      localforage.setItem('token', userData.token);
+      localforage.setItem('id', userData.id);
+      localforage.setItem('user', userData);
+  
       navigate('/home');
     } catch (error) {
       setShowAlert(true);

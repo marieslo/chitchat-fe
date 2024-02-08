@@ -10,11 +10,11 @@ label {
 }
 
 input {
-  height: 25px;
+  height: 20px;
   padding: 5px 15px 5px 15px;
   width: 320px !important;
   font-size: 16px !important;
-  margin: 15px 25px 5px 15px;
+  margin: 5px 15px 5px 15px;
   color: #003249!important;
   font-family: "Varela Round", sans-serif;
   border-radius: 10px;
@@ -95,7 +95,7 @@ input.form-control:focus {
   margin: 0 auto; 
   /* opacity: 0.8; */
   position: absolute;
-  top: 50%;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
   justify-content: center;
@@ -135,6 +135,7 @@ input.form-control:focus {
 }
 
 .checkbox-label {
+  margin: 10px;
   position: relative;
   display: inline;
   color: #003249;
@@ -194,4 +195,32 @@ input.form-control:focus {
 
 .button-close:hover {
   cursor: pointer;
+}
+
+.radio-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-buttons label {
+  position: relative;
+  color: #003249 !important;
+}
+
+.radio-buttons input[type="radio"] {
+  height: 25px;
+  padding: 5px 15px 5px 15px;
+  width: 320px !important;
+  font-size: 16px !important;
+  margin: 15px 25px 5px 15px;
+  color: #003249!important;
+  font-family: "Varela Round", sans-serif;
+  border-radius: 10px;
+  border: solid #003249;
+  border-width: 1px;
+}
+
+.radio-buttons input[type="radio"]:focus {
+  outline: none!important;
 }

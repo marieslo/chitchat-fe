@@ -31,7 +31,7 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
 
   const handleLogin = (userData) => {
     onLogin({ ...userData, isAdmin: isAdminLogin });
-    localStorage.setItem('user', JSON.stringify(userData));
+    localforage.setItem('user', JSON.stringify(userData));
     onHide();
     navigate('/home');
   };

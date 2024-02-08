@@ -32,30 +32,9 @@ export default function SignUpForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    setInvalidFields([]);
-    setErrorMessages({
-      email: '',
-      password: '',
-      confirmPassword: '',
-      languageLevel: '',
-    });
-  
-    if (password !== confirmPassword) {
-      setInvalidFields(['password', 'confirmPassword']);
-      setErrorMessages({
-        password: "Passwords don't match",
-        confirmPassword: "Passwords don't match",
-      });
-      return;
-    }
-  
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    if (!passwordRegex.test(password)) {
-      setInvalidFields(['password']);
-      setErrorMessages({
-        password: 'Password must contain at least 8 characters, including 1 capital letter and 1 digit.',
-      });
-      return;
+    if (!email || !password || !confirmPassword || !firstName || !lastName || !languageLevel) {
+      console.error('All fields are required');
+      return; 
     }
   
     try {
@@ -66,7 +45,7 @@ export default function SignUpForm() {
         confirmPassword,
         firstName,
         lastName,
-        level: languageLevel, 
+        languageLevel,
       });
       const userData = response.data;
       login({ email, password, firstName, lastName, languageLevel });
@@ -121,10 +100,38 @@ export default function SignUpForm() {
       </Form.Group>
 
       <Form.Group controlId="formBasicLanguageLevel" className={invalidFields.includes('languageLevel') ? 'invalid' : ''}>
-        <Form.Label>Language Level</Form.Label>
-        <Form.Control type="text" value={languageLevel} onChange={(e) => setLanguageLevel(e.target.value)} />
-        {errorMessages.languageLevel && <small className="text-danger">{errorMessages.languageLevel}</small>}
-      </Form.Group>
+  <Form.Label>Language Level</Form.Label>
+  <div>
+    <label>
+      Beginner
+      <input
+        type="radio"
+        value="Beginner"
+        checked={languageLevel === 'Beginner'}
+        onChange={(e) => setLanguageLevel(e.target.value)}
+      />
+    </label>
+    <label>
+      Intermediate
+      <input
+        type="radio"
+        value="Intermediate"
+        checked={languageLevel === 'Intermediate'}
+        onChange={(e) => setLanguageLevel(e.target.value)}
+      />
+    </label>
+    <label>
+      Advanced
+      <input
+        type="radio"
+        value="Advanced"
+        checked={languageLevel === 'Advanced'}
+        onChange={(e) => setLanguageLevel(e.target.value)}
+      />
+    </label>
+  </div>
+  {errorMessages.languageLevel && <small className="text-danger">{errorMessages.languageLevel}</small>}
+</Form.Group>
 
       <button className="switch-login-signup-btn" type="submit" disabled={loading}>
         {loading ? (
