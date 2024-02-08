@@ -2,6 +2,10 @@
     .chitchat-container{
       height: 70vh; 
     }
+    
+    .cs-main-container{
+      width: 95% !important;
+    }
   }
   
   @media screen and (max-width: 576px) {
