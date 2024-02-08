@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import localforage from 'localforage';
 
 export default function ProfilePage() {
-  const token = localforage.getItem('token');
-  const id = localforage.getItem('id');
+  const token = localStorage.getItem('token');
+  const id = localStorage.getItem('id');
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     
     if (id) {
+      console.log(token)
       axios.get(`http://localhost:8000/user/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
