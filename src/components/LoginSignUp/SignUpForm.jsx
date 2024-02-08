@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useAuth } from '../../context/AuthProvider';
 import './LoginSignUp.css';
 
-export default function SignUpForm() {
+export default function SignUpForm({ closeModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -31,12 +31,12 @@ export default function SignUpForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!email || !password || !confirmPassword || !firstName || !lastName || !languageLevel) {
       console.error('All fields are required');
-      return; 
+      return;
     }
-  
+
     try {
       setLoading(true);
       const response = await axios.post('http://localhost:8000/signup', {
@@ -51,10 +51,11 @@ export default function SignUpForm() {
       login({ email, password, firstName, lastName, languageLevel });
       updateUser(userData);
       setShowSuccessMessage(true);
-  
+
       setTimeout(() => {
         navigate('/home');
       }, 1000);
+      closeModal();
     } catch (error) {
       console.error('Error registering user:', error);
       setLoading(false);
@@ -100,38 +101,38 @@ export default function SignUpForm() {
       </Form.Group>
 
       <Form.Group controlId="formBasicLanguageLevel" className={invalidFields.includes('languageLevel') ? 'invalid' : ''}>
-  <Form.Label>Language Level</Form.Label>
-  <div>
-    <label>
-      Beginner
-      <input
-        type="radio"
-        value="Beginner"
-        checked={languageLevel === 'Beginner'}
-        onChange={(e) => setLanguageLevel(e.target.value)}
-      />
-    </label>
-    <label>
-      Intermediate
-      <input
-        type="radio"
-        value="Intermediate"
-        checked={languageLevel === 'Intermediate'}
-        onChange={(e) => setLanguageLevel(e.target.value)}
-      />
-    </label>
-    <label>
-      Advanced
-      <input
-        type="radio"
-        value="Advanced"
-        checked={languageLevel === 'Advanced'}
-        onChange={(e) => setLanguageLevel(e.target.value)}
-      />
-    </label>
-  </div>
-  {errorMessages.languageLevel && <small className="text-danger">{errorMessages.languageLevel}</small>}
-</Form.Group>
+        <Form.Label>Language Level</Form.Label>
+        <div>
+          <label>
+            Beginner
+            <input
+              type="radio"
+              value="Beginner"
+              checked={languageLevel === 'Beginner'}
+              onChange={(e) => setLanguageLevel(e.target.value)}
+            />
+          </label>
+          <label>
+            Intermediate
+            <input
+              type="radio"
+              value="Intermediate"
+              checked={languageLevel === 'Intermediate'}
+              onChange={(e) => setLanguageLevel(e.target.value)}
+            />
+          </label>
+          <label>
+            Advanced
+            <input
+              type="radio"
+              value="Advanced"
+              checked={languageLevel === 'Advanced'}
+              onChange={(e) => setLanguageLevel(e.target.value)}
+            />
+          </label>
+        </div>
+        {errorMessages.languageLevel && <small className="text-danger">{errorMessages.languageLevel}</small>}
+      </Form.Group>
 
       <button className="switch-login-signup-btn" type="submit" disabled={loading}>
         {loading ? (

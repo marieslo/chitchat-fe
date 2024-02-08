@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './LoginSignUp.css';
 
-export default function LoginForm({ onSubmit }) {
+export default function LoginForm({ onSubmit, closeModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showAlert, setShowAlert] = useState(false);
@@ -24,7 +24,8 @@ export default function LoginForm({ onSubmit }) {
       localforage.setItem('token', userData.token);
       localforage.setItem('id', userData.id);
       localforage.setItem('user', userData);
-  
+      
+      closeModal();
       navigate('/home');
     } catch (error) {
       setShowAlert(true);

@@ -55,9 +55,9 @@ export default function LoginSignUpModal({ show, onHide, onSignup, onLogin }) {
       </Modal.Header>
       <Modal.Body>
         {isLoginPage ? (
-          <LoginForm onSubmit={handleLogin} />
+          <LoginForm onSubmit={handleLogin} closeModal={onHide}/>
         ) : (
-          <SignUpForm onSubmit={handleSignup} />
+          <SignUpForm onSubmit={handleSignup} closeModal={onHide}/>
         )}
       </Modal.Body>
     </Modal>
