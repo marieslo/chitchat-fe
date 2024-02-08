@@ -38,16 +38,16 @@ export default function NavigateBar() {
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-start">
         <Nav className="mr-auto">
 
-          {user && (
+          {/* {user && ( */}
             <>
               <NavLink
-                to="/home"
+                to="/"
                 className="nav-link"
-                style={location.pathname === '/home' ? activeLinkStyle : {}}
+                style={location.pathname === '/' ? activeLinkStyle : {}}
               >
-                Home
+                Topic selection
               </NavLink>
-
+{/* 
               <NavLink
                 to="/profile"
                 className="nav-link"
@@ -61,9 +61,9 @@ export default function NavigateBar() {
                 style={location.pathname === '/chathistory' ? activeLinkStyle : {}}
               >
                 My chats
-              </NavLink>
+              </NavLink> */}
             </>
-          )}
+          {/* )} */}
         </Nav>
       </Navbar.Collapse>
       <Navbar.Collapse className="justify-content-end">

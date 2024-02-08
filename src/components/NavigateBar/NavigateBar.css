@@ -13,8 +13,8 @@
 
 .nav {
   display: flex;
-  width: 100vw;
-  justify-content: start; 
+  width: 100%;
+  justify-content: space-between; 
   align-items: center;
   flex-direction: row;
   height: 30px;
@@ -23,13 +23,14 @@
   opacity: 0.9;
   letter-spacing: -1px;
   font-weight: bold;
-  padding: 5px;
+  padding: 10px;
+  padding-right: 60px;
   border-radius: 0.25rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-link, a, .mr-sm-2 {
-  margin-right: 0;
+ margin-right: 20px;
   margin-left: auto; 
   font-size: 16px;
   color: #03324b;
