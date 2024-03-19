@@ -1,4 +1,4 @@
-# Chitchat (Chatbot for learning Hebrew)
+# Chitchat (chatbot for learning Hebrew)
 ## 
 This is a frontend part of a studying Hackathon project.\ 
 
