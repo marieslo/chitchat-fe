@@ -1,5 +1,6 @@
-# Chitchat
-## (chatbot for learning Hebrew)
+# Chitchat (Chatbot for learning Hebrew)
+## 
+This is a frontend part of a studying Hackathon project.\ 
 
 ### React, Node, Python, OpenAI
 for run: 'npm i'
