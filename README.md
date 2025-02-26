@@ -1,6 +1,6 @@
 # Chitchat - Hebrew Learning Chatbot
 
-Chitchat is a chatbot designed to help users learn Hebrew. This project was built as part of a hackathon and focuses on providing interactive language learning experiences. The backend was developed in collaboration with the data science team to ensure the chatbot provides meaningful and accurate learning interactions.
+Chitchat is a chatbot designed to help users learn Hebrew. This project was built as part of an ITC Hackathon and focuses on providing interactive language learning experiences. The backend was developed in collaboration with data scientists to ensure the chatbot delivers accurate and meaningful interactions.
 
 ## Tech Stack
 
